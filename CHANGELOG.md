@@ -1,8 +1,6 @@
-# CHANGELOG
-
-
-
 ## v0.0.1
+
 时间: 2021年07月25日
+
 - eslint 代码规范
-- commit 规范校验 
+- commit 规范校验
