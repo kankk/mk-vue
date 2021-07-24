@@ -6,11 +6,6 @@
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -e"
-    }
-  },
   "dependencies": {
     "vue": "^3.0.5"
   },
@@ -25,7 +20,6 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-vue": "^7.14.0",
-    "husky": "^7.0.1",
     "typescript": "^4.3.2",
     "vite": "^2.4.3",
     "vue-tsc": "^0.0.24"
