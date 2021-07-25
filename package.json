@@ -1,11 +1,12 @@
 {
   "name": "mk-vue",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "d": "sh deploy.sh",
+    "p": "npm version patch &&  git push --follow-tags",
     "prepare": "husky install"
   },
   "dependencies": {
