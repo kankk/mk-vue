@@ -4,7 +4,7 @@
     <div class="wrap">
       <MkHeader class="header" />
       <div class="content">
-        Content
+        <router-view />
       </div>
       <MkFooter class="footer" />
     </div>
