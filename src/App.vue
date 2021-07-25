@@ -1,30 +1,36 @@
 <template>
-  <img
-    alt="Vue logo"
-    src="./assets/logo.png"
-  >
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div class="layout">
+    <MkSidebar class="sidebar" />
+    <div class="wrap">
+      <MkHeader class="header" />
+      <div class="content">
+        Content
+      </div>
+      <MkFooter class="footer" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import MkSidebar from './layouts/Sidebar.vue';
+import MkHeader from './layouts/Header.vue';
+import MkFooter from './layouts/Footer.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld,
+    MkSidebar,
+    MkHeader,
+    MkFooter,
   },
 });
 </script>
 
-<style>
+<style lang="scss">
+@import './layouts/layout.scss';
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  overflow: hidden;
 }
 </style>
