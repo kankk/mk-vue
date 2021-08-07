@@ -3,6 +3,8 @@ import { createApp } from 'vue';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
+import 'dayjs/locale/zh-cn';
+
 import router from './router';
 
 import App from './App.vue';

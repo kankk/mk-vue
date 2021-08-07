@@ -33,4 +33,7 @@ export default defineComponent({
   height: 100vh;
   overflow: hidden;
 }
+.content {
+  padding: 12px;
+}
 </style>

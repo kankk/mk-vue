@@ -56,6 +56,8 @@ module.exports = {
     // 'vue/html-self-closing': 'off',
     // 'vue/max-attributes-per-line': 'off'
 
+    'no-console': 'off',
+
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': 'off',
     'import/no-unresolved': 'off',

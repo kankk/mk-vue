@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "ant-design-vue": "^2.2.2",
+    "dayjs": "^1.10.6",
+    "mitt": "^3.0.0",
     "sass": "^1.36.0",
     "vue": "^3.0.5",
     "vue-router": "^4.0.10"

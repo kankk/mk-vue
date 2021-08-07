@@ -19,6 +19,14 @@
         工具箱
       </a-menu-item>
     </a-sub-menu>
+    <a-sub-menu key="demo">
+      <template #title>
+        Demo
+      </template>
+      <a-menu-item key="/demo/mitt">
+        mitt
+      </a-menu-item>
+    </a-sub-menu>
   </a-menu>
 </template>
 
