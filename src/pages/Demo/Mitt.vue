@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="event-on">
+    <div class="event-operation">
       <a-input
         v-model:value="inputEventName"
         placeholder="输入事件名"
@@ -8,16 +8,27 @@
       />
       <a-button
         type="primary"
-        style="margin-left: 8px;"
         @click="handleRegisterEvent"
       >
         注册事件
       </a-button>
       <a-button
-        style="margin-left: 8px;"
         @click="handleRandomEmit"
       >
         随机触发事件
+      </a-button>
+      <a-button
+        danger
+        @click="handleEventEmit('*')"
+      >
+        随机 * 事件(非正常触发)
+      </a-button>
+      <a-button
+        danger
+        type="primary"
+        @click="handleClearEvents"
+      >
+        清除所有事件
       </a-button>
     </div>
     <div class="event-list">
@@ -83,6 +94,7 @@ export default defineComponent({
   },
   created() {
     // 预设一些事件
+    this.handleEventOn('*');
     this.handleEventOn('EventA');
     this.handleEventOn('EventB');
     this.handleEventOn('EventC');
@@ -100,16 +112,29 @@ export default defineComponent({
       this.inputEventName = '';
     },
     handleEventOn(event: string) {
-      this.emitter.on(event, (e) => {
-        const content = `Event[${event}]: 事件触发. 随机参数: ${JSON.stringify(e)}`;
-        console.log(content);
+      if (event === '*') {
+        this.emitter.on(event, (type, e) => {
+          const content = `Event[${String(type)}]: 事件触发. 随机参数: ${JSON.stringify(e)}`;
+          console.log(content);
 
-        if (!this.eventConsoles.has(event)) {
-          this.eventConsoles.set(event, []);
-        }
+          if (!this.eventConsoles.has(event)) {
+            this.eventConsoles.set(event, []);
+          }
 
-        this.eventConsoles.get(event).push(content);
-      });
+          this.eventConsoles.get(event).push(content);
+        });
+      } else {
+        this.emitter.on(event, (e) => {
+          const content = `Event[${event}]: 事件触发. 随机参数: ${JSON.stringify(e)}`;
+          console.log(content);
+
+          if (!this.eventConsoles.has(event)) {
+            this.eventConsoles.set(event, []);
+          }
+
+          this.eventConsoles.get(event).push(content);
+        });
+      }
 
       if (!this.eventMap.has(event)) {
         this.eventMap.set(event, []);
@@ -120,7 +145,7 @@ export default defineComponent({
     handleRandomEmit() {
       const events: string[] = [];
       this.eventMap.forEach((value: [], key: string) => {
-        events.push(key);
+        if (key !== '*') events.push(key);
       });
 
       if (events.length > 0) {
@@ -144,11 +169,21 @@ export default defineComponent({
       this.eventMap.delete(event);
       this.eventConsoles.delete(event);
     },
+    handleClearEvents() {
+      this.emitter.all.clear();
+      this.eventMap.clear();
+    },
   },
 });
 </script>
 
 <style lang="scss" scoped>
+.event-operation {
+  :deep(.ant-btn) {
+    margin-left: 8px;
+  }
+}
+
 .event-list {
   padding: 24px 0px;
   .event-item {
