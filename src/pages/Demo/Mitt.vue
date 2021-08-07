@@ -44,14 +44,16 @@
           </a-button>
         </div>
         <div class="event-item-console">
-          <div
+          <template
             v-for="(content, cIndex) of eventConsoles.get(key)"
-            :key="`${content}-${cIndex}`"
+            :key="String(`${content}-${cIndex}`)"
           >
-            <a-typography-text type="secondary">
-              {{ content }}
-            </a-typography-text>
-          </div>
+            <div>
+              <a-typography-text type="secondary">
+                {{ content }}
+              </a-typography-text>
+            </div>
+          </template>
         </div>
       </div>
     </div>
