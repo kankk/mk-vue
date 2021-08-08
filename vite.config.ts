@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import Vue from '@vitejs/plugin-vue';
 import ViteComponents, {
   AntDesignVueResolver,
 } from 'vite-plugin-components';
@@ -8,7 +8,7 @@ import ViteComponents, {
 export default defineConfig({
   base: '/mk-vue/',
   plugins: [
-    vue(),
+    Vue(),
     ViteComponents({
       customComponentResolvers: [
         AntDesignVueResolver(),

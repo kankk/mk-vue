@@ -1,8 +1,5 @@
 import { createApp } from 'vue';
 
-import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
-
 import 'dayjs/locale/zh-cn';
 
 import router from './router';
@@ -13,8 +10,5 @@ const app = createApp(App);
 
 // 注册 vue-router
 app.use(router);
-
-// 注册 ant-design-vue
-app.use(Antd);
 
 app.mount('#app');
